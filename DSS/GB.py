@@ -42,7 +42,7 @@ def data_label_encoding(file):
 def dataset():
     # dataset (csv file) path
 
-    path = "UCI_Credit_Card.csv"
+    path = "SMEProposal.csv"
     # path = "crx.csv"
     # path = "SME.csv"
 
@@ -127,90 +127,102 @@ def gridsearch():
         clf = algo
 
         # !!!!!!!!!!!!!!! GB_Classifier !!!!!!!!!!!!!!!!!!!!!
-        # if name == 'GB_Classifier':
-        #     print(name)
-        #     tuning = GridSearchCV(estimator=clf, param_grid=params_GB, scoring='accuracy',
-        #                           n_jobs=4,
-        #                           iid=False, cv=10)
-        #     X_train, X_test, y_train, y_test = dataset()
-        #     tuning.fit(X_train, y_train)
-        #     best_params = tuning.best_params_
-        #     score = tuning.score(X_train, y_train)
-        #     y_pred = tuning.predict(X_test)
-        #     pred_score = accuracy_score(y_test, y_pred)
-        #     # Save the model
-        #     model_name = 'GradientBoosting_Classifier_Model.sav'
-        #     joblib.dump(tuning, model_name)
-        #     # load the model from disk
-        #     loaded_model = joblib.load(model_name)
-        #     print('Training Score: ', score)
-        #     print('Testing Score: ', pred_score)
-        #     print(best_params)
+        if name == 'GB_Classifier':
+            print(name)
+            tuning = GridSearchCV(estimator=clf, param_grid=params_GB, scoring='accuracy',
+                                  n_jobs=4,
+                                  iid=False, cv=10)
+            X_train, X_test, y_train, y_test = dataset()
+            tuning.fit(X_train, y_train)
+            best_params = tuning.best_params_
+            score = tuning.score(X_train, y_train)
+            y_pred = tuning.predict(X_test)
+            pred_score = accuracy_score(y_test, y_pred)
+            # Save the model
+            model_name = 'GradientBoosting_Classifier_Model.sav'
+            joblib.dump(tuning, model_name)
+            # load the model from disk
+            loaded_model = joblib.load(model_name)
+            print('GB_Classifier Training Score: ', score)
+            print('GB_Classifier Testing Score: ', pred_score)
+            print('GB_Classifier best Params: ', best_params)
+
+            end_time = time.time()
+            print('GB_Classifier Execution Time: ', end_time - start_time)
 
         # !!!!!!!!!!!!!!! Random_Forest !!!!!!!!!!!!!!!!!!!!!
-        # if name == 'Random_Forest':
-        #     print(name)
-        #     tuning = GridSearchCV(estimator=clf, param_grid=params_RF, scoring='accuracy',
-        #                           n_jobs=4,
-        #                           iid=False, cv=10)
-        #     X_train, X_test, y_train, y_test = dataset()
-        #     tuning.fit(X_train, y_train)
-        #     best_params = tuning.best_params_
-        #     score = tuning.score(X_train, y_train)
-        #     y_pred = tuning.predict(X_test)
-        #     pred_score = accuracy_score(y_test, y_pred)
-        #
-        #     # Save the model
-        #     model_name = 'Random_Froest_Model.sav'
-        #     joblib.dump(tuning, model_name)
-        #
-        #     # load the model from disk
-        #     loaded_model = joblib.load(model_name)
-        #     print('Training Score: ', score)
-        #     print('Testing Score: ', pred_score)
-        #     print(best_params)
+        if name == 'Random_Forest':
+            print(name)
+            tuning = GridSearchCV(estimator=clf, param_grid=params_RF, scoring='accuracy',
+                                  n_jobs=4,
+                                  iid=False, cv=10)
+            X_train, X_test, y_train, y_test = dataset()
+            tuning.fit(X_train, y_train)
+            best_params = tuning.best_params_
+            score = tuning.score(X_train, y_train)
+            y_pred = tuning.predict(X_test)
+            pred_score = accuracy_score(y_test, y_pred)
+
+            # Save the model
+            model_name = 'Random_Froest_Model.sav'
+            joblib.dump(tuning, model_name)
+
+            # load the model from disk
+            loaded_model = joblib.load(model_name)
+            print('Random_Forest Training Score: ', score)
+            print('Random_Forest Testing Score: ', pred_score)
+            print('Random_Forest best Params: ', best_params)
+
+            end_time = time.time()
+            print('Random_Forest Execution Time: ', end_time - start_time)
 
         # !!!!!!!!!!!!!!! ExtraTree_Classifier !!!!!!!!!!!!!!!!!!!!!
-        # if name == 'ExtraTree_Classifier':
-        #     print(name)
-        #     tuning = GridSearchCV(estimator=clf, param_grid=params_ET, scoring='accuracy',
-        #                           n_jobs=4,
-        #                           iid=False, cv=10)
-        #     X_train, X_test, y_train, y_test = dataset()
-        #     tuning.fit(X_train, y_train)
-        #     best_params = tuning.best_params_
-        #     score = tuning.score(X_train, y_train)
-        #     y_pred = tuning.predict(X_test)
-        #     pred_score = accuracy_score(y_test, y_pred)
-        #     # Save the model
-        #     model_name = 'ExtraTree_Classifier_Model.sav'
-        #     joblib.dump(tuning, model_name)
-        #     # load the model from disk
-        #     loaded_model = joblib.load(model_name)
-        #     print('Training Score: ', score)
-        #     print('Testing Score: ', pred_score)
-        #     print(best_params)
+        if name == 'ExtraTree_Classifier':
+            print(name)
+            tuning = GridSearchCV(estimator=clf, param_grid=params_ET, scoring='accuracy',
+                                  n_jobs=4,
+                                  iid=False, cv=10)
+            X_train, X_test, y_train, y_test = dataset()
+            tuning.fit(X_train, y_train)
+            best_params = tuning.best_params_
+            score = tuning.score(X_train, y_train)
+            y_pred = tuning.predict(X_test)
+            pred_score = accuracy_score(y_test, y_pred)
+            # Save the model
+            model_name = 'ExtraTree_Classifier_Model.sav'
+            joblib.dump(tuning, model_name)
+            # load the model from disk
+            loaded_model = joblib.load(model_name)
+            print('ExtraTree_Classifier Training Score: ', score)
+            print('ExtraTree_Classifier Testing Score: ', pred_score)
+            print('ExtraTree_Classifier best Params: ', best_params)
+
+            end_time = time.time()
+            print('ExtraTree_Classifier Execution Time: ', end_time - start_time)
 
         # !!!!!!!!!!!!!!! Linear Discrimiat Analysis !!!!!!!!!!!!!!!!!!!!!
-        # if name == 'LDA':
-        #     print(name)
-        #     tuning = GridSearchCV(estimator=clf, param_grid=params_LDA, scoring='accuracy',
-        #                           n_jobs=4,
-        #                           iid=False, cv=10)
-        #     X_train, X_test, y_train, y_test = dataset()
-        #     tuning.fit(X_train, y_train)
-        #     best_params = tuning.best_params_
-        #     score = tuning.score(X_train, y_train)
-        #     y_pred = tuning.predict(X_test)
-        #     pred_score = accuracy_score(y_test, y_pred)
-        #     # Save the model
-        #     model_name = 'LinearDiscriminat_Analysis_Model.sav'
-        #     joblib.dump(tuning, model_name)
-        #     # load the model from disk
-        #     loaded_model = joblib.load(model_name)
-        #     print('Training Score: ', score)
-        #     print('Testing Score: ', pred_score)
-        #     print(best_params)
+        if name == 'LDA':
+            print(name)
+            tuning = GridSearchCV(estimator=clf, param_grid=params_LDA, scoring='accuracy',
+                                  n_jobs=4,
+                                  iid=False, cv=10)
+            X_train, X_test, y_train, y_test = dataset()
+            tuning.fit(X_train, y_train)
+            best_params = tuning.best_params_
+            score = tuning.score(X_train, y_train)
+            y_pred = tuning.predict(X_test)
+            pred_score = accuracy_score(y_test, y_pred)
+            # Save the model
+            model_name = 'LinearDiscriminat_Analysis_Model.sav'
+            joblib.dump(tuning, model_name)
+            # load the model from disk
+            loaded_model = joblib.load(model_name)
+            print('LDA Training Score: ', score)
+            print('LDA Testing Score: ', pred_score)
+            print('LDA Params: ', best_params)
+
+            end_time = time.time()
+            print('LDA Execution Time: ', end_time - start_time)
 
         # !!!!!!!!!!!!!!! Artificial Neural Network !!!!!!!!!!!!!!!!!!!!!
         if name == 'ANN_Classification':
@@ -229,30 +241,36 @@ def gridsearch():
             joblib.dump(tuning, model_name)
             # load the model from disk
             loaded_model = joblib.load(model_name)
-            print('Training Score: ', score)
-            print('Testing Score: ', pred_score)
-            print(best_params)
+            print('ANN_Classification Training Score: ', score)
+            print('ANN_Classification Testing Score: ', pred_score)
+            print('ANN_Classification best Params: ', best_params)
+
+            end_time = time.time()
+            print('ANN_Classification Execution Time: ', end_time - start_time)
 
         # !!!!!!!!!!!!!!! K-Nearest Neighbors !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        # if name == 'KNN_Classification':
-        #     print(name)
-        #     tuning = GridSearchCV(estimator=clf, param_grid=params_KNN, scoring='accuracy',
-        #                           n_jobs=4,
-        #                           iid=False, cv=10)
-        #     X_train, X_test, y_train, y_test = dataset()
-        #     tuning.fit(X_train, y_train)
-        #     best_params = tuning.best_params_
-        #     score = tuning.score(X_train, y_train)
-        #     y_pred = tuning.predict(X_test)
-        #     pred_score = accuracy_score(y_test, y_pred)
-        #     # Save the model
-        #     model_name = 'KNN_Model.sav'
-        #     joblib.dump(tuning, model_name)
-        #     # load the model from disk
-        #     loaded_model = joblib.load(model_name)
-        #     print('Training Score: ', score)
-        #     print('Testing Score: ', pred_score)
-        #     print(best_params)
+        if name == 'KNN_Classification':
+            print(name)
+            tuning = GridSearchCV(estimator=clf, param_grid=params_KNN, scoring='accuracy',
+                                  n_jobs=4,
+                                  iid=False, cv=10)
+            X_train, X_test, y_train, y_test = dataset()
+            tuning.fit(X_train, y_train)
+            best_params = tuning.best_params_
+            score = tuning.score(X_train, y_train)
+            y_pred = tuning.predict(X_test)
+            pred_score = accuracy_score(y_test, y_pred)
+            # Save the model
+            model_name = 'KNN_Model.sav'
+            joblib.dump(tuning, model_name)
+            # load the model from disk
+            loaded_model = joblib.load(model_name)
+            print('KNN_Classification Training Score: ', score)
+            print('KNN_Classification Testing Score: ', pred_score)
+            print('KNN_Classification best Params: ', best_params)
+
+            end_time = time.time()
+            print('KNN_Classification Execution Time: ', end_time - start_time)
 
         else:
             pass
@@ -260,4 +278,4 @@ def gridsearch():
 
 gridsearch()
 end_time = time.time()
-print('Execution Time: ', end_time - start_time)
+print('Total Execution Time: ', end_time - start_time)

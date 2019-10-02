@@ -56,8 +56,7 @@ y = label
 
 
 # print(X)
-X_train, X_test, y_train, y_test = model_selection.train_test_split(
-                           X, y, test_size = 0.25, random_state = 0)
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.25, random_state=0)
 
 # print(X.head())
 # print('')

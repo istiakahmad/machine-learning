@@ -1,20 +1,20 @@
-import pandas as pd
-# dataset (csv file) path
-path = "crx.csv"
+Class = {}
 
+while True:
+    name = input("Enter Studen's Name and press enter for stop")
+    if name == '':
+        break
+    score = int(input("Enter Scores: "))
+    if name in Class:
+        Class[name] += (score,)
+    else:
+        Class[name] = (score,)
+for name in sorted(Class.keys()):
+    sum = 0
+    count = 0
+    for score in Class[name]:
+        sum += score
+        count += 1
+    print(sum)
+    print(name, ":", sum / count)
 
-# reading the csv
-data = pd.read_csv(path)
-
-
-def get_features_and_label(data_from_csv):
-    data_from_csv.dropna(inplace=True)
-    features = data_from_csv.iloc[:, :-1]  # Extract features from the Dataset X1-X23, except the first ID column
-    label = data_from_csv.iloc[:, -1]  # Extract the labels from the Dataset.
-    return features, label
-
-
-features, label = get_features_and_label(data)
-
-print(features)
-print(label)
